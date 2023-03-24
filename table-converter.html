@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Excel paste to AsciiDoc PSV</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #F5F5F5;
+        line-height: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        display: block;
+        width: 800px;
+        height: 500px;
+        font-family: "Lucida Console";
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-size: 20px;
+        padding: 15px 30px;
+        border-radius: 5px;
+        border: none;
+        color: #FFFFFF;
+        background-color: #0072C6;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+        width: 220px;
+      }
+      
+      pre code {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 14px;
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+        color: #ffffff;
+        background-color: #1E1E1E;
+        transition: background-color 0.3s ease-in-out;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+        width: 600px;
+      }
+
+      button:hover {
+        background-color: #005A9E;
+      }
+
+      #copyMessage {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      #copyMessage.show {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Excel clipboard to AsciiDoc PSV table</h1>
+    <p>Easily convert excel tables to AsciiDoc!<br>
+      Simply paste a copied excel table. Note that it should not include special formatting like colors.</p>
+    
+    <textarea id="editor"></textarea>
+    <script src="script.js"></script>
+
+    <button onclick="copyText()" id="copyButton">Copy to clipboard</button>
+
+    <p>For <b>vertical lines</b> and to treat the <b>first row as header</b>, paste above table:</p>
+    <pre><code>[frame=none, grid=rows, options="header"]</code></pre>
+
+    <p>To additionally treat the <b>last row as footer</b>, paste instead:</p>
+    <pre><code>[frame=none, grid=rows, options="header,footer"]</code></pre>
+    <p>Link to GitHub repository: <a href="https://github.com/marcdus/copy-excel-to-asciidoc">marcdus/copy-excel-to-asciidoc</a></p>
+    
+
+    <script>
+      function copyText() {
+        var copyText = document.getElementById("editor");
+        copyText.select();
+        document.execCommand("copy");
+        var message = document.getElementById("copyButton");
+        message.innerHTML = "Table copied!";
+        message.classList.add("show");
+        setTimeout(function() {
+          message.innerHTML = "Copy to clipboard";
+        }, 2500);
+      }
+    </script>
+  </body>
+</html>
