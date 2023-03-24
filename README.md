@@ -1,5 +1,5 @@
 # Excel clipboard to AsciiDoc PSV table
-Simple tool to facilitate the creation of tables for asciidoc by simply copying cells in excel.
+Tool to facilitate the creation of tables for asciidoc by simply copying cells in excel.
 
 The script is based on [@jonmagic](https://github.com/jonmagic)'s [implementation for markdown](https://github.com/jonmagic/copy-excel-paste-markdown).
 
