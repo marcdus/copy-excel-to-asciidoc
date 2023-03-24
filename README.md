@@ -5,7 +5,7 @@ The script is based on [@jonmagic](https://github.com/jonmagic)'s [implementatio
 
 ## Usage
 1. Select and copy cells in excel
-1. Paste into text box in `table-converter.html`
+1. Paste into text box by opening `index.html` with a browser
 1. Copy-paste created table in your AsciiDoc document
 
 ## Example
